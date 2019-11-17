@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">SamsungMobilePOS</string>
-    <string name="action_settings">Settings</string>
-    <string name="hello_world">Hello World</string>
+    <string name="app_description">Settings</string>
+    <string name="action_settings">Something</string>
 </resources>
