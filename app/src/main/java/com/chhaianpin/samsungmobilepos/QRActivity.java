@@ -44,6 +44,7 @@ import java.io.OutputStream;
 import java.nio.ByteBuffer;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
@@ -65,7 +66,7 @@ public class QRActivity extends AppCompatActivity {
 
     private String cameraID;
     private CameraDevice mCameraDevice;
-    private CameraCaptureSession mCameraCaptureSession;
+    private CameraCaptureSession mCameraCaptureSessions;
     private CaptureRequest.Builder captureRequestBuilder;
     private Size imageDimensions;
     private ImageReader mImageReader;
@@ -218,6 +219,43 @@ public class QRActivity extends AppCompatActivity {
     }
 
     private void createCameraPreview() {
+        try {
+            SurfaceTexture texture = mTextureView.getSurfaceTexture();
+            assert texture != null;
+            texture.setDefaultBufferSize(imageDimensions.getWidth(), imageDimensions.getHeight());
+            Surface surface = new Surface(texture);
+            captureRequestBuilder = mCameraDevice.createCaptureRequest(CameraDevice.TEMPLATE_PREVIEW);
+            captureRequestBuilder.addTarget(surface);
+            mCameraDevice.createCaptureSession(Arrays.asList(surface), new CameraCaptureSession.StateCallback() {
+                @Override
+                public void onConfigured(@NonNull CameraCaptureSession cameraCaptureSession) {
+                    if (mCameraDevice == null) return;
+
+                    mCameraCaptureSessions = cameraCaptureSession;
+                    updatePreview();
+                }
+
+                @Override
+                public void onConfigureFailed(@NonNull CameraCaptureSession cameraCaptureSession) {
+                    Toast.makeText(QRActivity.this, "Changed", Toast.LENGTH_SHORT).show();
+                }
+            }, null);
+        } catch (CameraAccessException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void updatePreview() {
+        if (mCameraDevice == null) {
+            Toast.makeText(this, "error", Toast.LENGTH_SHORT).show();
+        }
+
+        captureRequestBuilder.set(CaptureRequest.CONTROL_MODE, CaptureRequest.CONTROL_MODE_AUTO);
+        try {
+            mCameraCaptureSessions.setRepeatingRequest(captureRequestBuilder.build(), null, mBackgroundHandler);
+        } catch (CameraAccessException e) {
+            e.printStackTrace();
+        }
     }
 
 
