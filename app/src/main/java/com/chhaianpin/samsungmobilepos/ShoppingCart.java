@@ -42,12 +42,42 @@ public class ShoppingCart extends AppCompatActivity {
         net = getNet();
         tax = getTax();
         total = net + tax;
+
+        item1 = findViewById(R.id.item1);
+        item2 = findViewById(R.id.item2);
+        item3 = findViewById(R.id.item3);
+
+        for (int i = 0; i < items.size(); i++) {
+            Item item = items.get(i);
+            if (i == 0) {
+                item1.setText(item.getName());
+                qty1.setText(item.getQuantity());
+                price1.setText(String.format("%.02f", item.getPrice()));
+                amount1.setText(String.format("%.02f", item.getAmount()));
+            }
+
+            if (i == 0) {
+                item2.setText(item.getName());
+                qty2.setText(item.getQuantity());
+                price2.setText(String.format("%.02f", item.getPrice()));
+                amount2.setText(String.format("%.02f", item.getAmount()));
+            }
+
+            if (i == 0) {
+                item3.setText(item.getName());
+                qty3.setText(item.getQuantity());
+                price3.setText(String.format("%.02f", item.getPrice()));
+                amount3.setText(String.format("%.02f", item.getAmount()));
+            }
+        }
+
+
     }
 
     private double getNet(){
         double net = 0;
         for (Item i : items) {
-            total += i.getPrice() * i.getQuantity();
+            net += i.getPrice() * i.getQuantity();
         }
 
         return net;

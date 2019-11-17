@@ -92,24 +92,4 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void logIn(View view) {
-        EditText user = view.findViewById(R.id.inputUserName);
-        Log.i("user", user.getText().toString());
-//        String userStr = user.getText().toString();
-//        EditText pw = view.findViewById(R.id.inputPassword);
-//        String pwStr = pw.getText().toString();
-//        Log.i("user", "User: " + userStr + " pw: " + pwStr);
-
-//        if (userStr.matches("") || pwStr.matches("")) {
-//            Toast.makeText(this, "A username and password are required", Toast.LENGTH_SHORT).show();
-//        }
-//
-//        for (Map.Entry<Integer, User> u : users.entrySet()) {
-//            if (u.getValue().getUserID().equals(userStr)) {
-//                Toast.makeText(this, "User exists in database", Toast.LENGTH_SHORT).show();
-//            }
-//        }
-//
-//        Toast.makeText(this, "User does not exist in database", Toast.LENGTH_SHORT).show();
-    }
 }

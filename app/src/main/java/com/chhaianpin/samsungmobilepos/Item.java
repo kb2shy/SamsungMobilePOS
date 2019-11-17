@@ -6,14 +6,12 @@ public class Item {
     private double price;
     private String serialNumber;
     private int quantity;
-    private double amount;
 
     public Item(String name, double price, String serialNumber, int quantity) {
         this.name = name;
         this.price = price;
         this.serialNumber = serialNumber;
         this.quantity = quantity;
-        amount = getAmount();
     }
 
     public String getName() {
@@ -32,7 +30,7 @@ public class Item {
         return quantity;
     }
 
-    private double getAmount(){
+    public double getAmount(){
         return this.price * this.quantity;
     }
 }

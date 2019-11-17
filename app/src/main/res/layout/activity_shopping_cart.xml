@@ -7,11 +7,14 @@
     tools:context=".ShoppingCart">
 
     <TableLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:id="@+id/tableLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:stretchColumns="*"
-        tools:layout_editor_absoluteX="29dp"
-        tools:layout_editor_absoluteY="16dp">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <TableRow
             android:layout_width="match_parent"
@@ -153,17 +156,23 @@
         android:id="@+id/btn_checkout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Check Out"
-        tools:layout_editor_absoluteX="156dp"
-        tools:layout_editor_absoluteY="501dp" />
+        android:layout_marginTop="501dp"
+        android:layout_marginBottom="5dp"
+        android:text="@string/btn_checkout"
+        app:layout_constraintBottom_toTopOf="@+id/btn_modify"
+        app:layout_constraintEnd_toEndOf="@+id/btn_modify"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btn_modify"
         android:layout_width="101dp"
         android:layout_height="0dp"
-        android:text="Modify"
-        tools:layout_editor_absoluteX="155dp"
-        tools:layout_editor_absoluteY="555dp" />
+        android:layout_marginBottom="1dp"
+        android:text="@string/btn_modify"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_checkout" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
