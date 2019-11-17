@@ -116,6 +116,8 @@ public class QRActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 takePicture();
+                Intent intent = new Intent(QRActivity.this, ShoppingCart.class);
+                startActivity(intent);
             }
 
         });

@@ -2,4 +2,21 @@
     <string name="app_name">SamsungMobilePOS</string>
     <string name="app_description">Settings</string>
     <string name="action_settings">Something</string>
+    <string name="text_item1"></string>
+    <string name="text_qty1"></string>
+    <string name="text_price1"></string>
+    <string name="text_amount1"></string>
+    <string name="text_item2"></string>
+    <string name="text_qty2"></string>
+    <string name="text_price2"></string>
+    <string name="text_amount2"></string>
+    <string name="text_item3"></string>
+    <string name="text_qty3"></string>
+    <string name="text_price3"></string>
+    <string name="text_amount3"></string>
+    <string name="text_totalqty"></string>
+    <string name="text_totalamount"></string>
+    <string name="text_totaltax"></string>
+    <string name="text_total"></string>
+
 </resources>
